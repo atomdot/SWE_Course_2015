@@ -117,11 +117,11 @@ public class LoginActivity extends Activity {
                             Log.d("score", "Retrieved the object.");
                             if (object.getString("userType").equalsIgnoreCase("admin")) {
                                 input = "admin";
-                               Intent intent = new Intent(LoginActivity.this, user.class);
+                               Intent intent = new Intent(LoginActivity.this, admin.class);
                                 startActivity(intent);
                             }
                             if (object.getString("userType").equalsIgnoreCase("user")) {
-                                input = "faculty";
+                                input = "user";
                                 Intent intent = new Intent(LoginActivity.this, user.class);
                                 startActivity(intent);
                         }
