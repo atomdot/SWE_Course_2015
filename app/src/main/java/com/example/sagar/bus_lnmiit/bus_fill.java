@@ -25,7 +25,7 @@ import com.parse.ParseUser;
 public class bus_fill extends AppCompatActivity {
 
     EditText admin_bus_title,admin_driver,admin_route_from,admin_route_to;
-    TimePicker timePicker;
+    //TimePicker timePicker;
     Button btn_submit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class bus_fill extends AppCompatActivity {
         admin_driver = (EditText)findViewById(R.id.admin_book_authortext);
         admin_route_from = (EditText)findViewById(R.id.admin_book_pubtext);
         admin_route_to = (EditText)findViewById(R.id.admin_book_resbytext);
-        timePicker=(TimePicker)findViewById(R.id.timePicker);
+        //timePicker=(TimePicker)findViewById(R.id.timePicker);
         btn_submit=(Button)findViewById(R.id.add_book_btn);
 
         btn_submit.setOnClickListener(new View.OnClickListener() {

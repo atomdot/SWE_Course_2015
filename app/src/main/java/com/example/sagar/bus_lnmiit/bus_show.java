@@ -27,6 +27,7 @@ public class bus_show extends AppCompatActivity {
 
     ListView listView;
     List<ParseObject> ob;
+    ProgressDialog mProgressDialog;
     ArrayAdapter<String> adapter;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -38,58 +39,76 @@ public class bus_show extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_show);
-
+        new RemoteDataTask().execute();
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
-    protected Void doInBackground(Void... params) {
-        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("libBusDet");
-        query.orderByDescending("_created_at");
-        try {
-            ob = query.find();
-        } catch (ParseException e) {
-            Log.e("Error", e.getMessage());
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    protected void onPostExecute(Void result) {
-
-        // Locate the listview in listview_main.xml
-
-        listView = (ListView) findViewById(R.id.listView);
-
-        // Pass the results into an ArrayAdapter
-
-        adapter = new ArrayAdapter<String>(bus_show.this,
-                R.layout.activity_bus_show);
-
-        // Retrieve object "name" from Parse.com database
-
-        for (ParseObject libBusDet : ob) {
-            adapter.add((String) libBusDet.get("bus_id"));
+    private class RemoteDataTask extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            // Create a progressdialog
+            mProgressDialog = new ProgressDialog(bus_show.this);
+            // Set progressdialog title
+            mProgressDialog.setTitle("Parse.com ");
+            // Set progressdialog message
+            mProgressDialog.setMessage("Loading...");
+            mProgressDialog.setIndeterminate(false);
+            // Show progressdialog
+            mProgressDialog.show();
         }
 
-        // Binds the Adapter to the ListView
 
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                // Send single item click data to SingleItemView Class
-                Intent i = new Intent(bus_show.this,
-                        SingleItemView.class);
-                // Pass data "name" followed by the position
-                i.putExtra("bus_id", ob.get(position).getString("bus_id")
-                        .toString());
-                // Open SingleItemView.java Activity
-                startActivity(i);
+        protected Void doInBackground(Void... params) {
+            ParseQuery<ParseObject> query = ParseQuery.getQuery("libBusDet");
+            query.orderByDescending("createdAt");
+            try {
+                ob = query.find();
+            } catch (ParseException e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
             }
-        });
+            return null;
+        }
+
+        protected void onPostExecute(Void result) {
+
+            // Locate the listview in listview_main.xml
+
+            listView = (ListView) findViewById(R.id.listView);
+
+            // Pass the results into an ArrayAdapter
+
+            adapter = new ArrayAdapter<String>(bus_show.this,
+                    R.layout.activity_bus_show);
+
+            // Retrieve object "name" from Parse.com database
+
+            for (ParseObject libBusDet : ob) {
+                adapter.add((String) libBusDet.get("bus_id"));
+            }
+
+            // Binds the Adapter to the ListView
+
+            listView.setAdapter(adapter);
+            mProgressDialog.dismiss();
+            listView.setOnItemClickListener(new OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view,
+                                        int position, long id) {
+                    // Send single item click data to SingleItemView Class
+                    Intent i = new Intent(bus_show.this,
+                            SingleItemView.class);
+                    // Pass data "name" followed by the position
+                    i.putExtra("bus_id", ob.get(position).getString("bus_id")
+                            .toString());
+                    // Open SingleItemView.java Activity
+                    startActivity(i);
+                }
+            });
+        }
     }
 
     @Override

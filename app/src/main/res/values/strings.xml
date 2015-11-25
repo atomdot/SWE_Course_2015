@@ -9,6 +9,9 @@
         <item>Logout</item>
     </string-array>
 
+    <string name="namelabel">"Name : "</string>
+
+
     <string name="admin_bus_submit">Submit</string>
     <string name="admin_bus_cancel">Cancel</string>
     <string name="no_not">No Notification</string>
