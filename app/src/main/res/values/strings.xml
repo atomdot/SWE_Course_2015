@@ -5,14 +5,18 @@
     <string-array name="navigation_drawer_items_array">
         <item>Home</item>
         <item>Enter Bus</item>
+        <item>View Buses</item>
         <item>Logout</item>
     </string-array>
 
-    <string-array name="navigation_drawer_items_array_user">
-        <item>Home</item>
-        <item>My Trips</item>
-        <item>Logout</item>
-    </string-array>
+    <string name="admin_bus_submit">Submit</string>
+    <string name="admin_bus_cancel">Cancel</string>
+    <string name="no_not">No Notification</string>
+    <string name="admin_bus_header">Enter Bus Details</string>
+    <string name="admin_bus_title">Bus ID</string>
+    <string name="admin_driver">Bus Driver</string>
+    <string name="admin_route_from">From</string>
+    <string name="admin_route_to">To</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
