@@ -27,24 +27,19 @@ public class bus_show extends AppCompatActivity {
 
     ListView listView;
     List<ParseObject> ob;
-    ProgressDialog mProgressDialog;
     ArrayAdapter<String> adapter;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
+    ProgressDialog mProgressDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_show);
+        // Execute RemoteDataTask AsyncTask
         new RemoteDataTask().execute();
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
+    // RemoteDataTask AsyncTask
     private class RemoteDataTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute() {
@@ -52,7 +47,7 @@ public class bus_show extends AppCompatActivity {
             // Create a progressdialog
             mProgressDialog = new ProgressDialog(bus_show.this);
             // Set progressdialog title
-            mProgressDialog.setTitle("Parse.com ");
+            mProgressDialog.setTitle("Parse.com Loading Buses");
             // Set progressdialog message
             mProgressDialog.setMessage("Loading...");
             mProgressDialog.setIndeterminate(false);
@@ -60,10 +55,12 @@ public class bus_show extends AppCompatActivity {
             mProgressDialog.show();
         }
 
-
+        @Override
         protected Void doInBackground(Void... params) {
-            ParseQuery<ParseObject> query = ParseQuery.getQuery("libBusDet");
-            query.orderByDescending("createdAt");
+            // Locate the class table named "Country" in Parse.com
+            ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
+                    "libBusDet");
+            query.orderByAscending("createdAt");
             try {
                 ob = query.find();
             } catch (ParseException e) {
@@ -73,27 +70,22 @@ public class bus_show extends AppCompatActivity {
             return null;
         }
 
+        @Override
         protected void onPostExecute(Void result) {
-
             // Locate the listview in listview_main.xml
-
             listView = (ListView) findViewById(R.id.listView);
-
             // Pass the results into an ArrayAdapter
-
             adapter = new ArrayAdapter<String>(bus_show.this,
-                    R.layout.activity_bus_show);
-
+                    R.layout.listview_item);
             // Retrieve object "name" from Parse.com database
-
-            for (ParseObject libBusDet : ob) {
-                adapter.add((String) libBusDet.get("bus_id"));
+            for (ParseObject country : ob) {
+                adapter.add((String) country.get("bus_id"));
             }
-
             // Binds the Adapter to the ListView
-
             listView.setAdapter(adapter);
+            // Close the progressdialog
             mProgressDialog.dismiss();
+            // Capture button clicks on ListView items
             listView.setOnItemClickListener(new OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view,
@@ -110,44 +102,6 @@ public class bus_show extends AppCompatActivity {
             });
         }
     }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "bus_show Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app deep link URI is correct.
-                Uri.parse("android-app://com.example.sagar.bus_lnmiit/http/host/path")
-        );
-        AppIndex.AppIndexApi.start(client, viewAction);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "bus_show Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app deep link URI is correct.
-                Uri.parse("android-app://com.example.sagar.bus_lnmiit/http/host/path")
-        );
-        AppIndex.AppIndexApi.end(client, viewAction);
-        client.disconnect();
-    }
 }
+
+
