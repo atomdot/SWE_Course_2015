@@ -95,7 +95,7 @@ public class bus_show extends AppCompatActivity {
                             SingleItemView.class);
                     // Pass data "name" followed by the position
                     i.putExtra("bus_id", ob.get(position).getString("bus_id")
-                            .toString());
+                            .toString() +" "+ ob.get(position).getString("bus_driver").toString() +" "+ ob.get(position).getString("bus_route_from").toString() +" "+ ob.get(position).getString("bus_route_to").toString());
                     // Open SingleItemView.java Activity
                     startActivity(i);
                 }
