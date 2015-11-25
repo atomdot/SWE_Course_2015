@@ -69,8 +69,8 @@ public class bus_show extends AppCompatActivity {
 
         // Retrieve object "name" from Parse.com database
 
-        for (ParseObject country : ob) {
-            adapter.add((String) country.get("name"));
+        for (ParseObject libBusDet : ob) {
+            adapter.add((String) libBusDet.get("bus_id"));
         }
 
         // Binds the Adapter to the ListView
@@ -84,7 +84,7 @@ public class bus_show extends AppCompatActivity {
                 Intent i = new Intent(bus_show.this,
                         SingleItemView.class);
                 // Pass data "name" followed by the position
-                i.putExtra("name", ob.get(position).getString("name")
+                i.putExtra("bus_id", ob.get(position).getString("bus_id")
                         .toString());
                 // Open SingleItemView.java Activity
                 startActivity(i);
