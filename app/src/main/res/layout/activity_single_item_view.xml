@@ -18,4 +18,54 @@
         android:layout_toRightOf="@+id/namelabel"
         android:textSize="25sp" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.32" />
+
+    <TextView
+        android:id="@+id/driverlabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/driverlabel"
+        android:textSize="25sp"
+        android:layout_below="@+id/namelabel"
+        android:layout_alignParentStart="true" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.32" />
+
+    <TextView
+        android:id="@+id/fromlabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fromlabel"
+        android:textSize="25sp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/driverlabel" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.32" />
+    <TextView
+        android:id="@+id/tolabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tolabel"
+        android:textSize="25sp"
+        android:layout_below="@+id/fromlabel"
+        android:layout_alignParentStart="true" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.32" />
+
 </RelativeLayout>

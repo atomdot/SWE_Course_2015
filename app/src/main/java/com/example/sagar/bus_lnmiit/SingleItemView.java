@@ -6,6 +6,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.widget.TextView;
 
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
 public class SingleItemView extends AppCompatActivity {
 
     TextView txtname;
@@ -23,6 +26,7 @@ public class SingleItemView extends AppCompatActivity {
 
         // Get the name
         bus_id = i.getStringExtra("bus_id");
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("libBusDet");
 
         // Locate the TextView in singleitemview.xml
         txtname = (TextView) findViewById(R.id.bus_id);

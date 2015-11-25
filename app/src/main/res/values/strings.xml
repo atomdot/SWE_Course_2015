@@ -9,8 +9,10 @@
         <item>Logout</item>
     </string-array>
 
-    <string name="namelabel">"Name : "</string>
-
+    <string name="namelabel">"Bus Id: "</string>
+    <string name="driverlabel">"Bus Driver: "</string>
+    <string name="fromlabel">"From: "</string>
+    <string name="tolabel">"To: "</string>
 
     <string name="admin_bus_submit">Submit</string>
     <string name="admin_bus_cancel">Cancel</string>
