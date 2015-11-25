@@ -12,4 +12,20 @@
     tools:context="com.example.sagar.bus_lnmiit.user"
     tools:showIn="@layout/app_bar_user">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to Bus Reservation App LNMIIT"
+        android:id="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To Book and view buses, click below"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="171dp" />
 </RelativeLayout>
