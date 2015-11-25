@@ -38,7 +38,10 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".SingleItemView" />
-        <activity android:name=".bus_show_user"></activity>
+        <activity android:name=".bus_user" />
+        <activity android:name=".SingleItemView2" />
+        <activity android:name=".book_details" />
+        <activity android:name=".SingleItemView3"></activity>
     </application>
 
 </manifest>

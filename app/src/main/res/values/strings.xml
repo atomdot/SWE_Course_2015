@@ -14,6 +14,14 @@
     <string name="fromlabel">"From: "</string>
     <string name="tolabel">"To: "</string>
 
+    <string name="namelabel1">"Route: "</string>
+    <string name="driverlabel1">"Time: "</string>
+    <string name="fromlabel1">"Seats Total: "</string>
+    <string name="tolabel1">"Seats Booked: "</string>
+
+    <string name="namelabel2">"Booked route: "</string>
+    <string name="driverlabel2">"Date Booked: "</string>
+
     <string name="admin_bus_submit">Submit</string>
     <string name="admin_bus_cancel">Cancel</string>
     <string name="no_not">No Notification</string>

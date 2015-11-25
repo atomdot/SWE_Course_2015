@@ -38,7 +38,7 @@ public class user extends AppCompatActivity
 
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
-                Intent intent = new Intent(user.this, bus_show_user.class);
+                Intent intent = new Intent(user.this, bus_user.class);
                 startActivity(intent);
             }
         });
@@ -93,6 +93,8 @@ public class user extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
+            Intent intent = new Intent(user.this, book_details.class);
+            startActivity(intent);
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
