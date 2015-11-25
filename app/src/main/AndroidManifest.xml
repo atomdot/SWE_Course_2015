@@ -37,7 +37,8 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".SingleItemView"></activity>
+        <activity android:name=".SingleItemView" />
+        <activity android:name=".bus_show_user"></activity>
     </application>
 
 </manifest>

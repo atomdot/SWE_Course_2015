@@ -24,7 +24,7 @@ import com.parse.ParseUser;
 
 public class bus_fill extends AppCompatActivity {
 
-    EditText admin_bus_title,admin_driver,admin_route_from,admin_route_to;
+    EditText admin_time,admin_bus_title,admin_driver,admin_route_from,admin_route_to;
     //TimePicker timePicker;
     Button btn_submit;
     @Override
@@ -36,6 +36,7 @@ public class bus_fill extends AppCompatActivity {
         admin_driver = (EditText)findViewById(R.id.admin_book_authortext);
         admin_route_from = (EditText)findViewById(R.id.admin_book_pubtext);
         admin_route_to = (EditText)findViewById(R.id.admin_book_resbytext);
+        admin_time = (EditText)findViewById(R.id.admin_time_timebytext);
         //timePicker=(TimePicker)findViewById(R.id.timePicker);
         btn_submit=(Button)findViewById(R.id.add_book_btn);
 
@@ -48,6 +49,10 @@ public class bus_fill extends AppCompatActivity {
                 addBook.put("bus_driver", admin_driver.getText().toString());
                 addBook.put("bus_route_from", admin_route_from.getText().toString());
                 addBook.put("bus_route_to", admin_route_to.getText().toString());
+                addBook.put("seats",60);
+                addBook.put("seats_booked",0);
+                addBook.put("bus_info",admin_route_from.getText().toString()+"-"+admin_route_to.getText().toString());
+                addBook.put("bus_time",admin_time.getText().toString());
                // addBook.put("time_hour",timePicker.getHour());
                // addBook.put("time_minute",timePicker.getMinute());
                 addBook.saveInBackground();

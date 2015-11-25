@@ -114,12 +114,27 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Time"
+                android:id="@+id/admin_time"
+                android:layout_weight="0.07" />
+
+            <EditText
+                android:id="@+id/admin_time_timebytext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.07" />
+<!--
             <TimePicker
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/timePicker"
                 android:layout_weight="0.07" />
-
+-->
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
