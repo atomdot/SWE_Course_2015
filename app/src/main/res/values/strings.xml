@@ -20,7 +20,7 @@
     <string name="tolabel1">"Seats Booked: "</string>
 
     <string name="namelabel2">"Booked route: "</string>
-    <string name="driverlabel2">"Date Booked: "</string>
+    <string name="driverlabel2">"Book Id: "</string>
 
     <string name="admin_bus_submit">Submit</string>
     <string name="admin_bus_cancel">Cancel</string>

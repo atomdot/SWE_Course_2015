@@ -91,8 +91,8 @@ public class book_details extends AppCompatActivity {
                     Intent i = new Intent(book_details.this,
                             SingleItemView3.class);
                     // Pass data "name" followed by the position
-                    i.putExtra("bus_info", ob.get(position).getString("bus_info_user")
-                            .toString() +" "+ob.get(position).getDate("createdAt")
+                    i.putExtra("bus_info_user", ob.get(position).getString("bus_info_user")
+                            .toString() +" "+ob.get(position).getString("objectId")
                             .toString());
                     // Open SingleItemView.java Activity
                     startActivity(i);

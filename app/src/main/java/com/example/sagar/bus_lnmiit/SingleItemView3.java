@@ -39,7 +39,7 @@ public class SingleItemView3 extends AppCompatActivity {
 
         Intent i = getIntent();
 
-        bus_info_user = i.getStringExtra("bus_info");
+        bus_info_user = i.getStringExtra("bus_info_user");
         detail= bus_info_user.split(" ");
 
         txtname = (TextView) findViewById(R.id.bus_info_user);

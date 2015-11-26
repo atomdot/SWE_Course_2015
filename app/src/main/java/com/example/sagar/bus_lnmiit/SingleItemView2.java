@@ -63,13 +63,15 @@ public class SingleItemView2 extends AppCompatActivity {
             public void onClick(View e) {
                 avail=Integer.valueOf(detail[2]);
                 booked=Integer.valueOf(detail[3]);
-
+                avail=avail -1;
+                booked=booked +1;
                 ParseObject addBook = new ParseObject("sagar");
                 addBook.put("bus_info_user", detail[0]);
 
-                ParseObject refresh = new ParseObject("libBusDet");
-                refresh.put("seats", avail);
-                refresh.put("seats_booked", booked );
+
+               // ParseQuery innerQuery = new ParseQuery("libBusDet");
+                //refresh.put("seats", avail);
+                //refresh.put("seats_booked", booked );
 
                 // addBook.put("time_hour",timePicker.getHour());
                 // addBook.put("time_minute",timePicker.getMinute());
