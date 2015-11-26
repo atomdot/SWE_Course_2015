@@ -97,12 +97,9 @@ public class user extends AppCompatActivity
             startActivity(intent);
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-
+            Intent intent = new Intent(user.this, bus_show.class);
+            startActivity(intent);
         } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
             Intent intent_logout = new Intent(user.this, LoginActivity.class);

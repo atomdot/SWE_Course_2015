@@ -21,11 +21,13 @@
             android:id="@+id/listView3"
             android:layout_gravity="center" />
 
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
-            android:layout_gravity="center_horizontal|top"
-            android:text="Your Current Booking" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="My Bookings"
+            android:id="@+id/textView6"
+            android:layout_gravity="center_horizontal|top" />
+
     </FrameLayout>
 </RelativeLayout>

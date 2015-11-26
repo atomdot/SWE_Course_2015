@@ -5,27 +5,20 @@
         <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Bookings" />
+            android:title="My Bookings" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Profile" />
+            android:title="Buses Profile" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Total Trips" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Settings" />
+
     </group>
 
     <item android:title="Logout">
         <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Change Password" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"

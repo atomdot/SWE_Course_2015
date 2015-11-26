@@ -51,6 +51,7 @@ public class admin extends AppCompatActivity {
                 }
                 else if(position == 3)
                 {
+                    ParseUser.logOut();
                     Intent intent_logout = new Intent(admin.this, LoginActivity.class);
                     startActivity(intent_logout);
                 }
